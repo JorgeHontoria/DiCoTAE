@@ -1,0 +1,308 @@
+package org.msolanogadea.dsl.qtsummit.cascades {
+
+        import org.lunifera.dsl.ext.cpp.qt.datatypes.*;
+        import org.lunifera.dsl.ext.cpp.qt.lib.types.annotation.*;
+
+        @TargetOS("Qt")
+        @FriendsClass("DataUtil,DataServer")
+        dto SettingsData {
+                domainKey int id;
+                var int version;
+                var QString apiVersion;
+                var Timestamp lastUpdate;
+                var bool isProductionEnvironment;
+                var int primaryColor;
+                var int accentColor;
+                var bool darkTheme;
+                var bool useMarkerColors;
+                var bool defaultMarkerColors;
+                var QString markerColors;
+                var bool hasPublicCache;
+                var bool useCompactJsonFormat;
+                var int lastUsedNumber;
+                var QString publicRoot4Dev;
+                var bool autoUpdate;
+                var int autoUpdateEveryHours;
+                var Timestamp lastUpdateStamp;
+                // -1,0: oneHandComfort, 1: bottom, 2: classic
+                var int navigationStyle;
+                var bool oneMenuButton;
+                var bool classicStackNavigation;
+        }
+
+        @CachePolicy("-R-")
+        @TargetOS("Qt")
+        dto Repository {
+                domainKey int id;
+                var QString repositoryName;
+                var QString repositoryCity;
+                var QString address;
+                // TODO not used yet
+                var QString timeZoneName;
+                var int timeZoneOffsetSeconds;
+                @DateFormatString("yyyy-MM-dd")
+                var Date repositoryFrom;
+                @DateFormatString("yyyy-MM-dd")
+                var Date repositoryTo;
+                var QString hashTag;
+                var QString hashContentBlock;
+                var QString homePage;
+                // TODO Map Integration GeoCoordinate
+                var QString coordinate;
+                var int lastDictionaryId;
+                var int lastCategoryId;
+                var int lastSectionId;
+                var int lastKeyTagId;
+                var int lastKeyContentBlockId;
+                // implicitly ref lazy
+                // sorted: day,start
+                var Day [ 0 .. * ] days;
+        }
+
+        @CachePolicy("-R-")
+        @TargetOS("Qt")
+        dto Dictionary {
+                domainKey int dictionaryId;
+                var QString dictionaryName;
+                var bool inAssets;
+                // implicitly ref lazy
+                var Category [ 0 .. * ] relatedCategories;
+        }
+
+        @CachePolicy("-R-")
+        @TargetOS("Qt")
+        dto Category {
+                domainKey int categoryId;
+                var QString categoryName;
+                var bool inAssets;
+
+                ref lazy Dictionary [1] dictionary;
+                // implicitly ref lazy
+                var Section [ 0 .. * ] sections;
+        }
+
+        @CachePolicy("-R-")
+        @TargetOS("Qt")
+        dto Section {
+                domainKey int sectionId;
+                var QString sectionName;
+                var bool inAssets;
+
+                ref lazy Category [1] category;
+                // implicitly ref lazy
+                // sorted day,start
+                var Key [ 0 .. * ] keys;
+        }
+
+        @CachePolicy("-R-")
+        @TargetOS("Qt")
+        dto Key {
+                domainKey int keyId;
+                // sort day start 010900
+                var QString sortKey;
+                var bool isRefView;
+                var bool isBoolean2;
+                var bool isBoolean3;
+                var bool isBoolean4;
+                var bool isBoolean5;
+                var bool isBoolean6;
+                var bool isBoolean7;
+                var bool isBoolean8;
+                var QString title;
+                var QString subtitle;
+                var QString description;
+                var QString keyType;
+                var QString contentStandardName;
+                var QString contentArticulo1;
+                var QString contentSituacion1;
+                var QString contentLink;
+                @DateFormatString("HH:mm")
+                var Time startTime;
+                @DateFormatString("HH:mm")
+                var Time endTime;
+                var int minutes;
+
+                // don't want to cache updated Keys
+                // so isFavorite and isBookmarked are updated at Startup
+                transient bool isFavorite;
+                transient bool isBookmarked;
+
+                // implicitly ref lazy
+                var Creator [0 .. *] creator;
+                var KeyLink [0 .. *] keyLinks;
+                ref lazy Day [ 1 ] keyDay;
+                ref lazy Section [ 0 .. 1 ] section;
+                ref lazy KeyTag [0..1] keyTag;
+                ref lazy KeyContentBlock [0..1] keyContentBlock;
+                ref lazy DictionaryItem [0 .. 1] dictionaryItem;
+
+        }
+
+        @CachePolicy("-R-")
+        @TargetOS("Qt")
+        dto DictionaryItem {
+                domainKey int keyId;
+                var bool isBreak;
+                var bool isLunch;
+                var bool isEvent;
+                var bool isRegistration;
+
+                ref lazy Key [1] key;
+        }
+
+        @TargetOS("Qt")
+        dto Favorite {
+                domainKey int keyId;
+                ref lazy Key [1] key;
+        }
+
+        @TargetOS("Qt")
+        dto Bookmark {
+                domainKey int keyId;
+                ref lazy Key [1] key;
+        }
+
+        @TargetOS("Qt")
+        @CachePolicy("-R-T-")
+        // key lists created on demand
+        dto KeyLists {
+                domainKey QString uuid;
+                // implicitly ref lazy
+                var Key [ 0 .. * ] dictionarydKeys;
+                var Key [ 0 .. * ] sameTimeKeys;
+                var Key [ 0 .. * ] specialTimeKeys;
+        }
+
+        @CachePolicy("-R-")
+        @TargetOS("Qt")
+        dto KeyLink {
+                domainKey QString uuid;
+                var QString url;
+                var QString title;
+        }
+
+        @CachePolicy("-R-")
+        @TargetOS("Qt")
+        dto Creator {
+                domainKey int creatorId;
+                var bool isBoolean2;
+                // 'SCHUL'
+                var QString sortKey;
+                // 'S'
+                var QString sortGroup;
+                var QString name;
+                var QString publicName;
+                var QString bio;
+
+                ref lazy CreatorImage [0..1] creatorImage;
+                // implicitly ref lazy
+                // sort day, start
+                var Key [0 .. *] keys;
+        }
+
+        @CachePolicy("-R-")
+        @TargetOS("Qt")
+        dto CreatorImage {
+                domainKey int creatorId;
+                var QString originImageUrl;
+                var bool downloadSuccess;
+                var bool downloadFailed;
+                var bool inAssets;
+                var bool inData;
+                var QString suffix;
+                // 0 .. 4
+                var int maxScaleFactor;
+        }
+
+        @CachePolicy("-R-")
+        @TargetOS("Qt")
+        dto KeyTag {
+                domainKey int tagId;
+                var QString name;
+                var bool inAssets;
+                // implicitly ref lazy
+                // sort day start
+                var Key [0 .. *] keys;
+        }
+
+        @CachePolicy("-R-")
+        @TargetOS("Qt")
+        dto KeyContentBlock {
+                domainKey int contentBlockId;
+                var QString name;
+                var bool inAssets;
+                // implicitly ref lazy
+                // sort day start
+                var Key [0 .. *] keys;
+        }
+
+        @CachePolicy("-R-")
+        @TargetOS("Qt")
+        dto Day {
+                domainKey int id;
+                // 0..6
+                var int weekDay;
+                @DateFormatString("yyyy-MM-dd")
+                var Date repositoryDay;
+                // implicitly ref lazy
+                // sort day start
+                var Key [0 .. *] keys;
+        }
+
+        // A P I   data delivered as payload from server via REST API
+        @CachePolicy("-R-T-")
+        @TargetOS("Qt")
+        dto KeyAPI {
+                @ForeignPropertyName("id")
+                domainKey int keyId;
+                var QString title;
+                var QString subtitle;
+                var QString description;
+                @ForeignPropertyName("type")
+                var QString keyType;
+                var QString contentStandardName;
+                var QString contentArticulo1;
+                var QString contentSituacion1;
+                @DateFormatString("HH:mm")
+                @ForeignPropertyName("start")
+                var Time startTime;
+                var QString start_time;
+                @ForeignPropertyName("contentLink")
+                var QString contentLink;
+                var QString section;
+                var QString tag;
+                var QString contentBlock;
+                @ForeignPropertyName("creators")
+                var PersonsAPI [0 .. *] creator;
+                @ForeignPropertyName("links")
+                var KeyLinkAPI [0 .. *] keyLinks;
+        }
+        @CachePolicy("-R-T-")
+        @TargetOS("Qt")
+        dto PersonsAPI {
+                @ForeignPropertyName("id")
+                domainKey int creatorId;
+        }
+        @CachePolicy("-R-T-")
+        @TargetOS("Qt")
+        dto KeyLinkAPI {
+                domainKey QString uuid;
+                var QString url;
+                var QString title;
+        }
+        @CachePolicy("-R-T-")
+        @TargetOS("Qt")
+        dto CreatorAPI {
+                domainKey int id;
+                @ForeignPropertyName("first_name")
+                var QString firstName;
+                @ForeignPropertyName("last_name")
+                var QString lastName;
+                @ForeignPropertyName("full_public_name")
+                var QString publicName;
+                @ForeignPropertyName("abstract")
+                var QString bio;
+                var QString avatar;
+        }
+
+}

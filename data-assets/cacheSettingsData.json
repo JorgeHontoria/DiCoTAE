@@ -1,0 +1,21 @@
+{
+    "accentColor": 4,
+    "apiVersion": "1.3",
+    "autoUpdate": false,
+    "autoUpdateEveryHours": 0,
+    "classicStackNavigation": false,
+    "darkTheme": false,
+    "defaultMarkerColors": false,
+    "hasPublicCache": false,
+    "id": 1,
+    "isProductionEnvironment": true,
+    "lastUsedNumber": 0,
+    "markerColors": "",
+    "navigationStyle": 0,
+    "oneMenuButton": true,
+    "primaryColor": 0,
+    "publicRoot4Dev": "/data/msolanogadea/c2gDiCoTAE_x",
+    "useCompactJsonFormat": true,
+    "useMarkerColors": false,
+    "version": 1
+}

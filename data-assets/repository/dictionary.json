@@ -1,0 +1,69 @@
+{
+  "version": "1.3",
+  "repository": {
+    "title": "DiCoTAE",
+    "start": "2018-01-26",
+    "end": "2040-10-20",
+    "updates": {
+      "2018-01-26": {
+        "index": 0,
+        "date": "2018-01-26",
+        "sections": {
+          "W X Y Z": [
+            {
+              "id": 3,
+              "idRefView": 3,
+              "id2": 0,
+              "start": "00:00",
+              "start_time": "00:00",
+              "slug": "xml",
+              "section": "W X Y Z",
+              "type": "T",
+              "title": "XML",
+              "subtitle": "XML",
+              "description": "Es un metalenguaje extensible de etiquetas desarrollado por el 'World Wide Web Consortium' (W3C). Es una simplificación y adaptación del SGML y permite definir la gramática de lenguajes específicos (de la misma manera que HTML es a su vez un lenguaje definido por SGML). Por lo tanto XML no es realmente un lenguaje en particular, sino una manera de definir lenguajes para diferentes necesidades. Algunos de estos lenguajes que usan XML para su definición son XHTML, SVG, MathML.",
+              "tags": ["Interoperabilidad"],
+              "contentStandardName": "Wikipedia",
+              "creators": [{"id": 2000,"full_public_name": "Miguel Solano Gadea","first_name": "Miguel","last_name": "Solano Gadea"}],
+              "links": [],
+              "contentLink": "https://es.wikipedia.org/wiki/Extensible_Markup_Language",
+              "contentBlocks": ["5-Glosario"],
+              "contentArticulo1": "",
+              "contentSituacion1": "",
+              "contentStandardTypes": [],
+              "indicador1": "",
+              "indicador2": "",
+              "version": 3
+            },
+            {
+              "id": 4,
+              "idRefView": 4,
+              "id2": 0,
+              "start": "00:00",
+              "start_time": "00:00",
+              "slug": "xbrl-espana-asociacion",
+              "section": "W X Y Z",
+              "type": "T",
+              "title": "XBRL España, Asociación",
+              "subtitle": "XBRL España, Asociación",
+              "description": "La Asociación XBRL España para la difusión de estándares de tecnología es una asociación sin ánimo de lucro creada el 21 de abril de 2004 en Madrid con el respaldo de once socios fundadores de entidades públicas y privadas, entre los que destacan el Banco de España, CNMV, Colegio de Registradores, AECA y diversas empresas de tecnología. La Asociación XBRL España es una asociación de referencia en Europa y Latinoamérica. Es la representante española en XBRL Europa (www.xbrl.eu) y en XBRL Internacional (www.xbrl.org). La jurisdicción española está siendo puerta de entrada y generadora de contenidos en español para toda Latinoamérica. Desde España estamos ayudando a Latinoamérica en la definición e implantación del estándar.",
+              "tags": [],
+              "contentStandardName": "Web",
+              "creators": [{"id": 2000,"full_public_name": "Miguel Solano Gadea","first_name": "Miguel","last_name": "Solano Gadea"}],
+              "links": [],
+              "contentLink": "http://www.xbrl.es/es/inicio/que-es-asociacion-xbrl-espana/",
+              "contentBlocks": ["9-Servicios"],
+              "contentArticulo1": "",
+              "contentSituacion1": "",
+              "contentStandardTypes": [],
+              "indicador1": "",
+              "indicador2": "",
+              "version": 1
+            }
+          ]
+        }
+      }
+    },
+    "timeslot_start_time": ""
+  }
+}

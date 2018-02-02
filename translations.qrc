@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>translations/c2gDiCoTAE_x_en.qm</file>
+        <file>translations/c2gDiCoTAE_x.qm</file>
+        <file>translations/c2gDiCoTAE_x_es.qm</file>
+    </qresource>
+</RCC>

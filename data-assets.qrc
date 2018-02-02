@@ -1,0 +1,38 @@
+<RCC>
+    <qresource prefix="/">
+        <file>data-assets/repository/categoryplan/dictionary_1.png</file>
+        <file>data-assets/repository/categoryplan/category_1.png</file>
+        <file>data-assets/repository/categoryplan/pier27_section_mapping.txt</file>
+        <file>data-assets/repository/categoryplan/section_1.png</file>
+        <file>data-assets/repository/categoryplan/section_2.png</file>
+        <file>data-assets/repository/categoryplan/section_3.png</file>
+        <file>data-assets/repository/categoryplan/section_4.png</file>
+        <file>data-assets/repository/categoryplan/section_5.png</file>
+        <file>data-assets/repository/categoryplan/section_6.png</file>
+        <file>data-assets/repository/creatorImages/creator_2000.jpg</file>
+        <file>data-assets/repository/creatorImages/creator_2000@2x.jpg</file>
+        <file>data-assets/repository/creatorImages/creator_2000@3x.jpg</file>
+        <file>data-assets/repository/creatorImages/creator_2000@4x.jpg</file>
+        <file>data-assets/repository/dictionary.json</file>
+        <file>data-assets/repository/creator.json</file>
+        <file>data-assets/prod/cacheBookmark.json</file>
+        <file>data-assets/prod/cacheDictionary.json</file>
+        <file>data-assets/prod/cacheRepository.json</file>
+        <file>data-assets/prod/cacheDay.json</file>
+        <file>data-assets/prod/cacheFavorite.json</file>
+        <file>data-assets/prod/cacheCategory.json</file>
+        <file>data-assets/prod/cacheSection.json</file>
+        <file>data-assets/prod/cacheDictionaryItem.json</file>
+        <file>data-assets/prod/cacheKey.json</file>
+        <file>data-assets/prod/cacheKeyLink.json</file>
+        <file>data-assets/prod/cacheKeyTag.json</file>
+        <file>data-assets/prod/cacheCreator.json</file>
+        <file>data-assets/prod/cacheCreatorImage.json</file>
+        <file>data-assets/cacheSettingsData.json</file>
+        <file>data-assets/repository/categoryplan/section_7.png</file>
+        <file>data-assets/repository/categoryplan/section_8.png</file>
+        <file>data-assets/repository/categoryplan/section_9.png</file>
+        <file>data-assets/prod/cacheKeyContentBlock.json</file>
+        <file>data-assets/prod/cacheKeyContentStandardType.json</file>
+    </qresource>
+</RCC>
